@@ -34,4 +34,40 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime:$rootProject.ext.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.lifecycleVersion"
+
+    //UI
+    implementation "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+    implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
+
+    //Rx
+    implementation "com.jakewharton.rxbinding2:rxbinding:$rootProject.ext.rxBindingVersion"
+    implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rootProject.ext.rxBindingVersion"
+
+    //Android X
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation "androidx.recyclerview:recyclerview:$rootProject.ext.recyclerviewVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintLayoutVersion"
+
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
+
+    //Dagger
+    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersion"
+    implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
+
+
 }
