@@ -26,7 +26,7 @@ class NetworkModule {
         val httpClient = getHttpClientBuilder().apply {
             addInterceptor(addAuthentication())
         }
-        return getRetrofitBuilder(httpClient.build(), "https://api.mercadolibre.com/sites/", gson)
+        return getRetrofitBuilder(httpClient.build(), "https://api.mercadolibre.com/", gson)
 
             .build()
     }

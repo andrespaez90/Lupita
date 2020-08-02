@@ -3,8 +3,8 @@ package com.example.lupita.di.componenets
 import com.exammple.lupita.di.modules.AppModule
 import com.example.lupita.di.InjectableApplication
 import com.example.lupita.di.modules.NetworkModule
+import com.example.lupita.di.modules.ServicesModules
 import com.example.lupita.di.modules.ViewModelModule
-import com.health.monitor.di.modules.ServicesModules
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector

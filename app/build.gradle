@@ -8,7 +8,7 @@ android {
     buildToolsVersion "29.0.0"
 
     defaultConfig {
-        applicationId "com.paez.covid"
+        applicationId "com.example.lupita"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 3
