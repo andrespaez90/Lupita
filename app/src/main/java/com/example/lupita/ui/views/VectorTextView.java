@@ -11,18 +11,18 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.example.lupita.R;
 import com.example.lupita.utils.AndroidVersionUtil;
 
-public class VectorCompatTextView extends AppCompatTextView {
+public class VectorTextView extends AppCompatTextView {
 
-    public VectorCompatTextView(Context context) {
+    public VectorTextView(Context context) {
         super(context);
     }
 
-    public VectorCompatTextView(Context context, AttributeSet attrs) {
+    public VectorTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initAttrs(context, attrs);
     }
 
-    public VectorCompatTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public VectorTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initAttrs(context, attrs);
     }

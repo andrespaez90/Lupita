@@ -31,7 +31,7 @@ open class PublishLiveData<T> : MutableLiveData<T>() {
 
     override fun postValue(value: T) {
         if (hasActiveObservers()) pending.set(true)
-        super.setValue(value)
+        super.postValue(value)
     }
 }
 
@@ -40,7 +40,9 @@ open class PublishLiveData<T> : MutableLiveData<T>() {
  * after that, the data not be dispatch on every observe
  */
 
-class ConsumerLiveData<T> : PublishLiveData<T>() {
+class ConsumerLiveData<T> : MutableLiveData<T>() {
+
+    protected val pending: AtomicBoolean = AtomicBoolean(false)
 
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
         super.observe(
@@ -60,7 +62,7 @@ class ConsumerLiveData<T> : PublishLiveData<T>() {
 
     override fun postValue(value: T) {
         pending.set(true)
-        super.setValue(value)
+        super.postValue(value)
     }
 }
 
