@@ -21,6 +21,19 @@ allprojects {
     }
 }
 
+ext {
+    daggerVersion = '2.24'
+    okhttpVersion = '3.4.1'
+    glideVersion = '4.9.0'
+    lifecycleVersion = '2.2.0-alpha02'
+    rxBindingVersion = '2.2.0'
+    materialVersion = '1.1.0-alpha10'
+    constraintLayoutVersion = "2.0.0-beta1"
+    recyclerviewVersion = "1.1.0-beta05"
+    retrofitVersion = '2.6.1'
+}
+
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
