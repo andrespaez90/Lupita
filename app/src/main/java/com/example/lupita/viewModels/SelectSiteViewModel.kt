@@ -3,7 +3,7 @@ package com.example.lupita.viewModels
 import android.app.Activity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.lupita.MainActivity
+import com.example.lupita.ui.activities.MainActivity
 import com.example.lupita.data.CountrySelectedPreference
 import com.example.lupita.managers.preferences.PrefsManager
 import com.example.lupita.network.api.SitesApi
@@ -32,7 +32,7 @@ class SelectSiteViewModel @Inject constructor(
         disposables.add(sitesApi.getSites()
             .doOnSubscribe { showLoading() }
             .doFinally { hideLoading() }
-            .subscribe({ siteList.postValue(it) }, ::showServiceError)
+            .subscribe({ siteList.postValue(it.sortedBy { it.name }) }, ::showServiceError)
         )
     }
 

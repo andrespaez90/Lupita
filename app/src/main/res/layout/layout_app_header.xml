@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/spacing_xlarge"
+                android:paddingTop="@dimen/spacing_large"
+                android:paddingRight="@dimen/spacing_xlarge"
+                android:paddingBottom="@dimen/spacing_large"
+                android:src="@drawable/ic_search"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_name"
+                style="@style/TextHuge.White.Bold"
+                android:layout_width="@dimen/spacing_empty"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/spacing_standard"
+                android:text="@string/app_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/imageView_search"
+                app:layout_constraintRight_toLeftOf="@id/imageView_scan"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView_scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/spacing_xlarge"
+                android:paddingTop="@dimen/spacing_large"
+                android:paddingRight="@dimen/spacing_xlarge"
+                android:paddingBottom="@dimen/spacing_large"
+                android:src="@drawable/ic_scan_qr"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/editText_query"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:padding="@dimen/spacing_large"
+            android:singleLine="true"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_actions" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
