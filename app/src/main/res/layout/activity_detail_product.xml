@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/spacing_large"
             android:gravity="center"
-            android:background="@color/background"
+            android:background="@color/white"
             android:text="Ver Publicacion original"
             app:layout_constraintBottom_toBottomOf="parent" />
 
