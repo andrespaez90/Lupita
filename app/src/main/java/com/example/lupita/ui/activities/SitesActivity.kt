@@ -2,6 +2,7 @@ package com.example.lupita.ui.activities
 
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -83,7 +84,7 @@ class SitesActivity : BaseActivity() {
 
     private fun initListeners(){
         binding.layoutRefresh.setOnRefreshListener { viewModel.updateInformation() }
-        itemsFactory.setListener { viewModel.setCountry(it.tag) }
+        itemsFactory.setListener { if(it is View) viewModel.setCountry(it.tag) }
     }
 
     /**

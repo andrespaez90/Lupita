@@ -1,6 +1,7 @@
 package com.example.lupita.viewModels
 
 import android.app.Activity
+import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.LiveData
@@ -10,6 +11,7 @@ import com.example.lupita.managers.preferences.PrefsManager
 import com.example.lupita.network.api.SitesApi
 import com.example.lupita.network.models.SeekerProduct
 import com.example.lupita.network.models.SitesCategories
+import com.example.lupita.ui.activities.DetailProductActivity
 import com.example.lupita.ui.activities.SitesActivity
 import com.example.lupita.viewModels.general.AndroidViewModel
 import com.example.lupita.viewModels.models.FinishActivityModel
@@ -84,6 +86,15 @@ class MainViewModel @Inject constructor(
         prefsManager.set(CountrySelectedPreference(), "")
         startActivity.postValue(StartActivityModel(SitesActivity::class.java))
         closeView.postValue(FinishActivityModel(Activity.RESULT_OK))
+    }
+
+    fun onProductClicked(product: SeekerProduct) {
+        startActivity.postValue(
+            StartActivityModel(
+                DetailProductActivity::class.java,
+                Bundle().apply { putParcelable("product", product) }
+            )
+        )
     }
 
     /**
