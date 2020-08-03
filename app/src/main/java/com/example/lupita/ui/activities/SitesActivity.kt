@@ -41,6 +41,7 @@ class SitesActivity : BaseActivity() {
      */
 
     private fun initView() {
+        setupActionBar(binding.toolbar, false)
         binding.recyclerViewList.run {
             adapter = GenericAdapter(itemsFactory)
             layoutManager = LinearLayoutManager(context)

@@ -1,6 +1,8 @@
 package com.example.lupita.network.api
 
+import com.example.lupita.network.models.SeekerResponse
 import com.example.lupita.network.models.Sites
+import com.example.lupita.network.models.SitesCategories
 import com.example.lupita.network.services.SitesServices
 import io.reactivex.Scheduler
 import io.reactivex.Single
@@ -12,4 +14,16 @@ class SitesApi @Inject constructor(private val services: SitesServices) : BaseAp
     @CheckReturnValue
     fun getSites(scheduler: Scheduler? = null): Single<List<Sites>> =
         subscribe(services.getSites(), scheduler)
+
+    @CheckReturnValue
+    fun getCategories(siteId: String, scheduler: Scheduler? = null): Single<List<SitesCategories>> =
+        subscribe(services.getCategoriesBySite(siteId), scheduler)
+
+    @CheckReturnValue
+    fun findProduct(
+        siteId: String,
+        query: String,
+        scheduler: Scheduler? = null
+    ): Single<SeekerResponse> =
+        subscribe(services.searchProduct(siteId, query), scheduler)
 }

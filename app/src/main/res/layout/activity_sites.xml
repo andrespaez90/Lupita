@@ -8,13 +8,32 @@
         android:layout_height="match_parent"
         tools:context="com.example.lupita.ui.activities.SitesActivity">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary"
+            android:theme="@style/RTTheme.Toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <com.example.lupita.ui.views.VectorTextView
+            android:id="@+id/textView_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:padding="@dimen/spacing_large"
+            android:text="Selecciona un pais"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/layout_refresh"
             android:layout_width="match_parent"
             android:layout_height="@dimen/spacing_empty"
             android:layout_marginTop="@dimen/spacing_small"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/textView_title"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_list"
