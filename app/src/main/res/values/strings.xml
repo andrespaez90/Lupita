@@ -2,6 +2,7 @@
     <string name="app_name">Lupita</string>
 
 
-    <string name="search_hint_product">Buscar Producto</string>
+    <string name="copy_share">Share</string>
+    <string name="search_hint_product">Search product</string>
 
 </resources>

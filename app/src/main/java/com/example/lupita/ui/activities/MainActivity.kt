@@ -46,7 +46,9 @@ class MainActivity : BaseActivity() {
 
     private fun initView() {
         binding.recyclerViewList.run {
-            adapter = GenericAdapter(AppListFactory())
+            adapter = GenericAdapter(AppListFactory {
+                if (it is SeekerProduct) viewModel.onProductClicked(it)
+            })
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(
                 DividerItemDecoration(
