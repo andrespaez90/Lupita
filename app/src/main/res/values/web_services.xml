@@ -1,0 +1,4 @@
+<resources>
+    <string name="image_url" translatable="false">https://www.countryflags.io/%1$s/flat/64.png</string>
+
+</resources>

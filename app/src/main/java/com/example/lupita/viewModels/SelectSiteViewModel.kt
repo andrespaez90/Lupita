@@ -7,6 +7,8 @@ import com.example.lupita.ui.activities.MainActivity
 import com.example.lupita.data.CountrySelectedPreference
 import com.example.lupita.managers.preferences.PrefsManager
 import com.example.lupita.network.api.SitesApi
+import com.example.lupita.network.models.CountryAvailable
+import com.example.lupita.network.models.CountryModel
 import com.example.lupita.network.models.Sites
 import com.example.lupita.viewModels.general.AndroidViewModel
 import com.example.lupita.viewModels.models.FinishActivityModel
@@ -18,7 +20,7 @@ class SelectSiteViewModel @Inject constructor(
     private val prefsManager: PrefsManager
 ) : AndroidViewModel() {
 
-    private val siteList = MutableLiveData<List<Sites>>()
+    private val siteList = MutableLiveData<List<CountryAvailable>>()
 
     init {
         if (prefsManager.getString(CountrySelectedPreference()).isBlank()) {
@@ -29,7 +31,7 @@ class SelectSiteViewModel @Inject constructor(
     }
 
     fun updateInformation() {
-        disposables.add(sitesApi.getSites()
+        disposables.add(sitesApi.getAvailableCountries()
             .doOnSubscribe { showLoading() }
             .doFinally { hideLoading() }
             .subscribe({ siteList.postValue(it.sortedBy { it.name }) }, ::showServiceError)
@@ -56,6 +58,6 @@ class SelectSiteViewModel @Inject constructor(
      * LiveData
      */
 
-    fun onDataChange(): LiveData<List<Sites>> = siteList
+    fun onDataChange(): LiveData<List<CountryAvailable>> = siteList
 
 }

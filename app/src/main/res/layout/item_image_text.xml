@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="@dimen/spacing_standard">
+
+        <ImageView
+            android:id="@+id/imageView_category"
+            android:layout_width="@dimen/size_image_flag"
+            android:layout_height="@dimen/size_image_flag"
+            android:elevation="@dimen/cardview_default_elevation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:targetApi="lollipop" />
+
+
+        <com.example.lupita.ui.views.VectorTextView
+            android:id="@+id/textView_name"
+            style="@style/TextNormal.Black"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="@dimen/spacing_empty"
+            android:drawableEnd="@drawable/ic_arrow"
+            android:gravity="center_vertical"
+            android:padding="@dimen/spacing_standard"
+            app:layout_constraintBottom_toBottomOf="@id/imageView_category"
+            app:layout_constraintLeft_toRightOf="@id/imageView_category"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageView_category"
+            tools:text="Category Name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

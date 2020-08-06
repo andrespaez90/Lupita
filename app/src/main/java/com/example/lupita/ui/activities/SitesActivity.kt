@@ -8,11 +8,11 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lupita.R
 import com.example.lupita.databinding.ActivitySitesBinding
-import com.example.lupita.network.models.Sites
+import com.example.lupita.network.models.CountryAvailable
 import com.example.lupita.ui.adapters.list.GenericAdapter
 import com.example.lupita.ui.adapters.list.models.GenericItemAbstract
 import com.example.lupita.ui.factories.AppListFactory
-import com.example.lupita.ui.factories.ITEM_GENERAL_SELECTOR
+import com.example.lupita.ui.factories.ITEM_IMAGE_SELECTOR
 import com.example.lupita.ui.items.DividerItemDecoration
 import com.example.lupita.ui.items.models.DrawableSimpleTextView
 import com.example.lupita.ui.items.models.SpacingSimpleTextView
@@ -60,19 +60,19 @@ class SitesActivity : BaseActivity() {
         viewModel.onDataChange().observe(this, Observer { updateInformation(it) })
     }
 
-    private fun updateInformation(sites: List<Sites>) {
+    private fun updateInformation(sites: List<CountryAvailable>) {
         (binding.recyclerViewList.adapter as GenericAdapter).setItems(
             sites.map {
                 GenericItemAbstract(
-                    VectorTextParams(it.name).apply {
-                        padding = SpacingSimpleTextView(R.dimen.spacing_large)
-                        backgroundColor = R.color.white
-                        textColor = R.color.black
-                        gravity = Gravity.LEFT
-                        drawable = DrawableSimpleTextView(R.drawable.ic_flag)
-                        tag = it.id
-                    },
-                    ITEM_GENERAL_SELECTOR
+                    Pair(getString(R.string.image_url, it.countryCode),
+                        VectorTextParams(it.name).apply {
+                            padding = SpacingSimpleTextView(R.dimen.spacing_large)
+                            backgroundColor = R.color.white
+                            textColor = R.color.black
+                            gravity = Gravity.LEFT
+                            tag = it.id
+                        }),
+                    ITEM_IMAGE_SELECTOR
                 )
             }
         )
@@ -82,9 +82,9 @@ class SitesActivity : BaseActivity() {
      * init Listeners
      */
 
-    private fun initListeners(){
+    private fun initListeners() {
         binding.layoutRefresh.setOnRefreshListener { viewModel.updateInformation() }
-        itemsFactory.setListener { if(it is View) viewModel.setCountry(it.tag) }
+        itemsFactory.setListener { if (it is View) viewModel.setCountry(it.tag) }
     }
 
     /**

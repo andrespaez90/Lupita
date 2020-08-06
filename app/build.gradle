@@ -90,7 +90,7 @@ dependencies {
     implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersion"
 
-    implementation "com.github.skydoves:balloon:1.1.9"
+    implementation "com.github.skydoves:balloon:1.2.0"
 
 
 }
