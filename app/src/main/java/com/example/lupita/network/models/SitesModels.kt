@@ -12,3 +12,14 @@ data class SitesCategories(
     @SerializedName("id") val id: String,
     @SerializedName("name") val name: String
 )
+
+data class CountryModel(
+    @SerializedName("id") val id: String,
+    @SerializedName("name") val name: String
+)
+
+data class CountryAvailable(
+    val id: String,
+    val name: String,
+    val countryCode: String
+)
