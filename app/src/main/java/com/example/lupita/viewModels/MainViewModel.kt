@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.lupita.data.CountrySelectedPreference
@@ -18,7 +19,7 @@ import com.example.lupita.viewModels.models.FinishActivityModel
 import com.example.lupita.viewModels.models.StartActivityModel
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
+class MainViewModel @ViewModelInject constructor(
     private val sitesApi: SitesApi,
     private val prefsManager: PrefsManager
 ) : AndroidViewModel() {

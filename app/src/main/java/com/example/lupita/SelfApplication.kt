@@ -1,31 +1,10 @@
 package com.example.lupita
 
-import com.example.lupita.di.InjectableApplication
-import com.example.lupita.di.componenets.DaggerMainComponent
-import com.example.lupita.di.componenets.MainComponent
+import androidx.multidex.MultiDexApplication
+import dagger.Provides
+import dagger.hilt.android.HiltAndroidApp
 
-class SelfApplication : InjectableApplication() {
+@HiltAndroidApp
+class SelfApplication : MultiDexApplication(){
 
-    lateinit var appComponent: MainComponent
-
-    companion object {
-
-        protected lateinit var sInstance: SelfApplication
-
-        fun getAppInstance(): SelfApplication =
-            sInstance
-    }
-
-    override fun onCreate() {
-        super.onCreate()
-        sInstance = this
-        initializeInjector()
-    }
-
-    override fun initializeInjector() {
-       appComponent = DaggerMainComponent
-            .builder()
-            .application(this).build()
-        appComponent.inject(this)
-    }
 }

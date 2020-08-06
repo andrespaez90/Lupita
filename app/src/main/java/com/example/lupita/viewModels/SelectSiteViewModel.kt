@@ -1,6 +1,7 @@
 package com.example.lupita.viewModels
 
 import android.app.Activity
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.lupita.ui.activities.MainActivity
@@ -15,7 +16,7 @@ import com.example.lupita.viewModels.models.FinishActivityModel
 import com.example.lupita.viewModels.models.StartActivityModel
 import javax.inject.Inject
 
-class SelectSiteViewModel @Inject constructor(
+class SelectSiteViewModel @ViewModelInject constructor(
     private val sitesApi: SitesApi,
     private val prefsManager: PrefsManager
 ) : AndroidViewModel() {
