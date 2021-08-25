@@ -4,14 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.example.lupita.viewModels.MainViewModel" />
     </data>
 
-
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
@@ -29,9 +27,9 @@
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/layout_refresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/textView_changeCountry"
-            android:layout_below="@id/layout_toolbar">
+            android:layout_height="@dimen/spacing_empty"
+            app:layout_constraintTop_toBottomOf="@id/layout_toolbar"
+            app:layout_constraintBottom_toTopOf="@id/textView_changeCountry">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_list"
@@ -42,20 +40,22 @@
 
         <com.example.lupita.ui.views.VectorTextView
             android:id="@+id/textView_changeCountry"
-            style="@style/TextNormal.Gray"
+            style="@style/TextNormal.White"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/background"
+            android:background="@color/colorPrimaryDark"
             android:gravity="center"
             android:onClick="@{ () -> viewModel.changeCountry()}"
             android:paddingLeft="@dimen/spacing_huge"
             android:paddingTop="@dimen/spacing_large"
             android:paddingRight="@dimen/spacing_huge"
             android:paddingBottom="@dimen/spacing_large"
-            android:text="Cambiar de Pais"
-            app:drawableLeft="@drawable/ic_flag" />
+            android:text="@string/copy_change_country"
+            app:drawableLeft="@drawable/ic_flag"
+            app:drawableRight="@drawable/ic_arrow"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

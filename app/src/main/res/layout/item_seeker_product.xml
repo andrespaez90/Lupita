@@ -26,13 +26,11 @@
             app:layout_constraintLeft_toLeftOf="parent"
             tools:targetApi="lollipop" />
 
-
-        <TextView
+        <com.example.lupita.ui.views.VectorTextView
             android:id="@+id/textView_name"
             style="@style/TextNormal.Black"
             android:layout_width="@dimen/spacing_empty"
             android:layout_height="@dimen/spacing_empty"
-            android:drawableEnd="@drawable/ic_arrow"
             android:gravity="center_vertical"
             android:padding="@dimen/spacing_standard"
             app:layout_constraintBottom_toBottomOf="@id/imageView_category"
@@ -40,6 +38,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@id/imageView_category"
             app:product_description="@{modelView}"
+            app:drawableEndCompat="@drawable/ic_arrow"
             tools:text="Category Name" />
 
 

@@ -63,13 +63,13 @@ class MainViewModel @Inject constructor(
      * Actions
      */
 
-    fun findProduct(query: String) {
+    fun findProduct(query: String, isWriting: Boolean = true) {
         lastQuery = query
         seekerHandler.removeCallbacks(searchTask)
-        if (query.isEmpty()) {
-            categories.postValue(allCategories)
-        } else {
-            seekerHandler.postDelayed(searchTask, 500)
+        when {
+            query.isEmpty() -> categories.postValue(allCategories)
+            isWriting -> seekerHandler.postDelayed(searchTask, 500)
+            else -> search()
         }
     }
 
@@ -77,6 +77,8 @@ class MainViewModel @Inject constructor(
         if (lastQuery.isNotEmpty()) {
             disposables.add(
                 sitesApi.findProduct(prefsManager.getString(CountrySelectedPreference()), lastQuery)
+                    .doOnSubscribe { showLoading() }
+                    .doOnSuccess { hideLoading() }
                     .subscribe({ seekerProduct.postValue(it.results) }, ::showServiceError)
             )
         }

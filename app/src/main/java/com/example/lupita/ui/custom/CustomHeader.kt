@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.FrameLayout
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.annotation.StringRes
@@ -55,11 +54,11 @@ class CustomHeader @JvmOverloads constructor(
         })
     }
 
-    private fun showSeeker() {
+    fun showSeeker(showKeyBoard: Boolean = true) {
         if (binding.editTextQuery.visibility == View.GONE) {
             binding.editTextQuery.visibility = View.VISIBLE
             binding.editTextQuery.requestFocus()
-            binding.editTextQuery.showKeyBoard()
+            if (showKeyBoard) binding.editTextQuery.showKeyBoard()
             binding.imageViewSearch.setImageResource(R.drawable.ic_close)
         } else {
             binding.editTextQuery.visibility = View.GONE
@@ -69,6 +68,8 @@ class CustomHeader @JvmOverloads constructor(
             binding.imageViewSearch.setImageResource(R.drawable.ic_search)
         }
     }
+
+    fun isSeekerOpen(): Boolean = binding.editTextQuery.visibility == View.VISIBLE
 
     /**
      * Config
@@ -91,13 +92,13 @@ class CustomHeader @JvmOverloads constructor(
             setArrowSize(10)
             setArrowOrientation(ArrowOrientation.TOP)
             setArrowVisible(true)
-            setWidthRatio(1.0f)
+            setWidthRatio(0.6f)
             setHeight(65)
             setTextSize(14f)
-            setArrowPosition(0.1f)
+            setArrowPosition(0.12f)
             setCornerRadius(4f)
             setAlpha(0.9f)
-
+            setPaddingLeft(5)
             setText(context.getString(R.string.search_hint_product))
             setTextColorResource(R.color.white)
             setIconDrawable(ContextCompat.getDrawable(context, R.drawable.ic_close))
