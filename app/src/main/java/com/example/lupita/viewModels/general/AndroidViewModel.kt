@@ -13,9 +13,6 @@ import com.example.lupita.viewModels.lifecylce.ConsumerLiveData
 import com.example.lupita.viewModels.lifecylce.PublishLiveData
 import com.example.lupita.viewModels.models.*
 import com.google.android.material.snackbar.Snackbar
-import io.reactivex.Completable
-import io.reactivex.Observable
-import io.reactivex.Single
 import io.reactivex.disposables.CompositeDisposable
 
 open class AndroidViewModel : ViewModel() {
@@ -113,28 +110,6 @@ open class AndroidViewModel : ViewModel() {
     }
 
     open fun onRestoreInstanceState(savedInstanceState: Bundle) {}
-
-    /**
-     * Subscriptions
-     */
-
-    open fun <T> baseSubscriptionsObservable(single: Single<T>): Single<T> {
-        return single
-            .doOnSubscribe { showLoading() }
-            .doFinally { hideLoading() }
-    }
-
-    fun baseSubscriptionsObservable(completable: Completable): Completable {
-        return completable
-            .doOnSubscribe { showLoading() }
-            .doFinally { hideLoading() }
-    }
-
-    fun <T> baseSubscriptionsObservable(observable: Observable<T>): Observable<T> {
-        return observable
-            .doOnSubscribe { showLoading() }
-            .doFinally { hideLoading() }
-    }
 
     /**
      * LiveData
