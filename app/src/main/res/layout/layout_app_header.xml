@@ -5,8 +5,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:animateLayoutChanges="true"
-        android:orientation="vertical">
+        android:animateLayoutChanges="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_actions"
@@ -18,12 +17,12 @@
             <ImageView
                 android:id="@+id/imageView_search"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/spacing_empty"
                 android:paddingLeft="@dimen/spacing_xlarge"
                 android:paddingTop="@dimen/spacing_large"
                 android:paddingRight="@dimen/spacing_xlarge"
                 android:paddingBottom="@dimen/spacing_large"
-                android:src="@drawable/ic_search"
+                app:srcCompat="@drawable/ic_search"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,7 +47,7 @@
                 android:paddingTop="@dimen/spacing_large"
                 android:paddingRight="@dimen/spacing_xlarge"
                 android:paddingBottom="@dimen/spacing_large"
-                android:src="@drawable/ic_scan_qr"
+                app:srcCompat="@drawable/ic_scan_qr"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
