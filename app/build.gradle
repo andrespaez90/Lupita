@@ -84,7 +84,6 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$rootProject.ext.recyclerviewVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintLayoutVersion"
 
-
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
