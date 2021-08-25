@@ -7,26 +7,18 @@ import androidx.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.qualifiers.ApplicationContext;
+
 import static android.content.Context.MODE_PRIVATE;
 
 public class PrefsManager {
 
-    private static PrefsManager sInstance;
-
     private Context context;
 
-    public static PrefsManager getInstance() {
-        if (sInstance == null)
-            throw new UnsupportedOperationException("Before call this method you have to int it ");
-        return sInstance;
-    }
-
-    public static void init(Context context) {
-        if (sInstance == null)
-            sInstance = new PrefsManager(context);
-    }
-
-    private PrefsManager(Context context) {
+    @Inject
+    PrefsManager(@ApplicationContext Context context) {
         this.context = context;
     }
 

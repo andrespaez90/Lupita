@@ -1,18 +1,20 @@
 package com.example.lupita.ui.activities
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.example.lupita.R
 import com.example.lupita.databinding.ActivityDetailProductBinding
 import com.example.lupita.network.models.SeekerProduct
 import com.example.lupita.viewModels.DetailProductViewModel
-import com.example.lupita.viewModels.extensions.provideViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailProductActivity : BaseActivity() {
 
     private lateinit var binding: ActivityDetailProductBinding
 
-    private lateinit var viewModel: DetailProductViewModel
+    private val viewModel: DetailProductViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +43,6 @@ class DetailProductActivity : BaseActivity() {
      */
 
     private fun initViewModel(product: SeekerProduct) {
-        viewModel = provideViewModel()
         subscribeViewModel(viewModel, binding.root)
     }
 }

@@ -5,6 +5,8 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,6 +20,7 @@ import javax.inject.Singleton
 const val TIME_OUT = 6
 
 @Module
+@InstallIn(ApplicationComponent::class)
 class NetworkModule {
 
     @Provides
