@@ -19,7 +19,7 @@ class DetailProductActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_product)
-        val product: SeekerProduct? = intent.extras.getParcelable("product")
+        val product: SeekerProduct? = intent.extras?.getParcelable("product")
         product?.let {
             initView(it)
             initViewModel(it)

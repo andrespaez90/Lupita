@@ -4,7 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.hilt.lifecycle.ViewModelInject
+import androidx.annotation.CheckResult
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.lupita.data.CountrySelectedPreference
@@ -17,9 +17,12 @@ import com.example.lupita.ui.activities.SitesActivity
 import com.example.lupita.viewModels.general.AndroidViewModel
 import com.example.lupita.viewModels.models.FinishActivityModel
 import com.example.lupita.viewModels.models.StartActivityModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import java.util.Collections.emptyList
 import javax.inject.Inject
 
-class MainViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MainViewModel @Inject constructor(
     private val sitesApi: SitesApi,
     private val prefsManager: PrefsManager
 ) : AndroidViewModel() {
@@ -102,7 +105,9 @@ class MainViewModel @ViewModelInject constructor(
      * Live Data
      */
 
+    @CheckResult
     fun onCategoriesChange(): LiveData<List<SitesCategories>> = categories
 
+    @CheckResult
     fun onSeekerProductChange(): LiveData<List<SeekerProduct>> = seekerProduct
 }
