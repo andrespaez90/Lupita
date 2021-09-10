@@ -49,6 +49,9 @@ class MainActivity : BaseActivity() {
         binding.recyclerViewList.run {
             adapter = GenericAdapter(AppListFactory {
                 if (it is SeekerProduct) viewModel.onProductClicked(it)
+                if (it is SimpleVectorCompatTextView) viewModel.findProduct(it.text.toString()); binding.layoutToolbar.showSeeker(
+                false
+            )
             })
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(
@@ -81,16 +84,13 @@ class MainActivity : BaseActivity() {
 
     private fun updateView(products: List<SeekerProduct>) {
         binding.recyclerViewList.layoutManager = LinearLayoutManager(this)
-        (binding.recyclerViewList.adapter as GenericAdapter).setItems(
-            products.map {
-                GenericItemAbstract(it, ITEM_PRODUCT_SELECTOR)
-            }
-        )
+        (binding.recyclerViewList.adapter as GenericAdapter).items =
+            products.map { GenericItemAbstract(it, ITEM_PRODUCT_SELECTOR) }
     }
 
     private fun updateCategories(categories: List<SitesCategories>) {
         binding.recyclerViewList.layoutManager = GridLayoutManager(this, 2)
-        (binding.recyclerViewList.adapter as GenericAdapter).setItems(
+        (binding.recyclerViewList.adapter as GenericAdapter).items =
             categories.map { data ->
                 GenericItemAbstract(
                     VectorTextParams(data.name).apply {
@@ -104,7 +104,6 @@ class MainActivity : BaseActivity() {
                     ITEM_GENERAL_SELECTOR
                 )
             }
-        )
     }
 
     /**
@@ -115,4 +114,9 @@ class MainActivity : BaseActivity() {
         binding.layoutRefresh.isRefreshing = showing
     }
 
+    override fun onBackPressed() {
+        if (binding.layoutToolbar.isSeekerOpen())
+            binding.layoutToolbar.showSeeker()
+        else super.onBackPressed()
+    }
 }

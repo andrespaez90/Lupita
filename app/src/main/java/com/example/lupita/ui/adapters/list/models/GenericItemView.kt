@@ -11,4 +11,8 @@ interface GenericItemView<T> {
     fun setSelected(var1: Boolean)
 
     fun getView(): View? = null
+
+    fun binds(data: Any?) {
+        bind(data as T)
+    }
 }
