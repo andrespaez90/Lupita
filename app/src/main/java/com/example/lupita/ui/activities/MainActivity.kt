@@ -17,6 +17,7 @@ import com.example.lupita.ui.factories.AppListFactory
 import com.example.lupita.ui.factories.ITEM_GENERAL_SELECTOR
 import com.example.lupita.ui.factories.ITEM_PRODUCT_SELECTOR
 import com.example.lupita.ui.items.DividerItemDecoration
+import com.example.lupita.ui.items.SimpleVectorCompatTextView
 import com.example.lupita.ui.items.models.DrawableSimpleTextView
 import com.example.lupita.ui.items.models.SpacingSimpleTextView
 import com.example.lupita.ui.items.models.VectorTextParams
@@ -49,9 +50,7 @@ class MainActivity : BaseActivity() {
         binding.recyclerViewList.run {
             adapter = GenericAdapter(AppListFactory {
                 if (it is SeekerProduct) viewModel.onProductClicked(it)
-                if (it is SimpleVectorCompatTextView) viewModel.findProduct(it.text.toString()); binding.layoutToolbar.showSeeker(
-                false
-            )
+                if (it is SimpleVectorCompatTextView) viewModel.findProduct(it.text.toString()); binding.layoutToolbar.showSeeker(false)
             })
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(
@@ -115,7 +114,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if (binding.layoutToolbar.isSeekerOpen())
+        if(binding.layoutToolbar.isSeekerOpen())
             binding.layoutToolbar.showSeeker()
         else super.onBackPressed()
     }

@@ -3,5 +3,6 @@
 
     <string name="copy_share">Compartir</string>
     <string name="search_hint_product">Buscar Producto</string>
+    <string name="copy_change_country">Cambiar de País</string>
 
 </resources>
