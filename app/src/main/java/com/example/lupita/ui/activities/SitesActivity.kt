@@ -61,7 +61,7 @@ class SitesActivity : BaseActivity() {
     }
 
     private fun updateInformation(sites: List<CountryAvailable>) {
-        (binding.recyclerViewList.adapter as GenericAdapter).setItems(
+        (binding.recyclerViewList.adapter as GenericAdapter).items =
             sites.map {
                 GenericItemAbstract(
                     Pair(getString(R.string.image_url, it.countryCode),
@@ -75,7 +75,6 @@ class SitesActivity : BaseActivity() {
                     ITEM_IMAGE_SELECTOR
                 )
             }
-        )
     }
 
     /**

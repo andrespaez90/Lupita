@@ -83,16 +83,13 @@ class MainActivity : BaseActivity() {
 
     private fun updateView(products: List<SeekerProduct>) {
         binding.recyclerViewList.layoutManager = LinearLayoutManager(this)
-        (binding.recyclerViewList.adapter as GenericAdapter).setItems(
-            products.map {
-                GenericItemAbstract(it, ITEM_PRODUCT_SELECTOR)
-            }
-        )
+        (binding.recyclerViewList.adapter as GenericAdapter).items =
+            products.map { GenericItemAbstract(it, ITEM_PRODUCT_SELECTOR) }
     }
 
     private fun updateCategories(categories: List<SitesCategories>) {
         binding.recyclerViewList.layoutManager = GridLayoutManager(this, 2)
-        (binding.recyclerViewList.adapter as GenericAdapter).setItems(
+        (binding.recyclerViewList.adapter as GenericAdapter).items =
             categories.map { data ->
                 GenericItemAbstract(
                     VectorTextParams(data.name).apply {
@@ -106,7 +103,6 @@ class MainActivity : BaseActivity() {
                     ITEM_GENERAL_SELECTOR
                 )
             }
-        )
     }
 
     /**
