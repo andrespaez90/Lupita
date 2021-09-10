@@ -1,6 +1,6 @@
 package com.example.lupita.ui.adapters.list.models
 
-import com.example.lupita.ui.factories.GenericAdapterFactory.TYPE_CATEGORY
+import com.example.lupita.ui.factories.ITEM_LIST_TYPE_CATEGORY
 
 class CategoryItem(
     override var data: CharSequence,
@@ -8,7 +8,7 @@ class CategoryItem(
 ) : GenericCategoryItem<CharSequence> {
 
     override val type: Int
-        get() = TYPE_CATEGORY
+        get() = ITEM_LIST_TYPE_CATEGORY
 
     override val categoryName: String
         get() = data.toString()
